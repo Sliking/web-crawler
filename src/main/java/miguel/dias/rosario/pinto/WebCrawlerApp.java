@@ -1,19 +1,29 @@
 package miguel.dias.rosario.pinto;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+
+import com.web.crawler.Anchor;
+import com.web.crawler.DBConnection;
+import com.web.crawler.Domain;
+import com.web.crawler.WebPage;
 
 public class WebCrawlerApp{
-    public static void main( String[] args ){
+    public static void main( String[] args ) throws Exception{
     	
-        System.out.println( "Starting Web Crawler..." );
-        
-       /*Domain domain = new Domain();
-       Anchor anchor = new Anchor();
-       WebPage webPage = new WebPage();*/
+    	String URL = "http://www.mit.edu/";
+    	
+		System.out.println( "Starting Web Crawler..." );
+			   
+		System.out.println("Connecting to database...");
+			   
+		DBConnection conn = new DBConnection();
+			    
+		Domain domain = new Domain(URL);
+			   
+		Anchor anchor = new Anchor(domain, URL);
+		WebPage webPage = new WebPage(anchor);
+		Document document = webPage.loadDocumentFromWeb();
+		webPage.proccessPage(conn, document, URL);
+		
     }
 }

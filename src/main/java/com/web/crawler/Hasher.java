@@ -3,6 +3,7 @@ package com.web.crawler;
 import java.security.MessageDigest;
 
 public class Hasher {
+	
 	public static String toSha256(String string){
 		try{
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
