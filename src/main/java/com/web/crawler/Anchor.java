@@ -24,6 +24,17 @@ public class Anchor {
 	
 	
 	/**Constructors */
+	public Anchor(Domain domain, String anchorURL) {
+		super();
+		this.domain = domain;
+		this.anchorHash = Hasher.toSha256(anchorURL);
+		this.scanStatus = 0;
+		this.activated = true;
+		this.modified = Common.getTimestamp();
+		this.created = Common.getTimestamp();
+		this.anchorURL = anchorURL;
+	}
+	
 	public Anchor(Domain domain, String anchorHash, String anchorURL) {
 		super();
 		this.domain = domain;
