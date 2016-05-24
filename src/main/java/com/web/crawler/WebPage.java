@@ -25,9 +25,7 @@ public class WebPage {
 		this.anchor = anchor;
 	}
 	
-	private void loadDocumentFromWeb(){
-		System.out.println( "Starting Web Crawler..." );
-        
+	private void loadDocumentFromWeb(){        
         try{
         	document = Jsoup.connect(anchor.getAnchorURL()).get();
         }catch(IOException e){

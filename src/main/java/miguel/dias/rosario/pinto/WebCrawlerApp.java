@@ -12,14 +12,8 @@ public class WebCrawlerApp{
     	
         System.out.println( "Starting Web Crawler..." );
         
-        try{
-        	Document doc = Jsoup.connect("http://www.jsoup.org/").get();
-        	org.jsoup.select.Elements links = doc.select("a");
-        	for(Element e : links){
-        		System.out.println(e.attr("abs:href"));
-        	}
-        }catch(IOException e){
-        	Logger.getLogger(WebCrawlerApp.class.getName()).log(Level.SEVERE, null, e);
-        }
+       /*Domain domain = new Domain();
+       Anchor anchor = new Anchor();
+       WebPage webPage = new WebPage();*/
     }
 }
