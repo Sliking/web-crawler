@@ -19,6 +19,15 @@ public class Domain {
 	public Timestamp getCreated(){return created;}
 	
 	/** Constructors */
+	public Domain(String domainURL) throws Exception{
+		super();
+		this.domainHash = Hasher.toSha256(domainURL);
+		this.domainURL = domainURL;
+		this.activated = true;
+		this.modified = Common.getTimestamp();
+		this.created = Common.getTimestamp();
+	}
+	
 	public Domain(String domainHash, String domainURL) {
 		super();
 		this.domainHash = domainHash;
